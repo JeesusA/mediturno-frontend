@@ -16,7 +16,7 @@ export default function Login() {
     e.preventDefault();
     setError('');
     try {
-      const res = await axios.post('http://localhost:4000/api/auth/login', { email, password });
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, { email, password });
       login(res.data);
       if (res.data.user.role === 'paciente') {
         navigate('/paciente');
